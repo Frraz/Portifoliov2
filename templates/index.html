@@ -10,8 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" href="/static/favicon.ico">
   <link rel="stylesheet" href="/static/custom.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <style>
     html { scroll-behavior: smooth; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 <body class="font-['Inter'] bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 text-gray-900 dark:text-gray-50">
@@ -120,40 +124,67 @@
         </div>
       </div>
     </section>
-    <!-- CERTIFICADOS -->
-<section id="certificados" class="mb-12">
-  <h2 class="text-2xl font-bold mb-4">Certificados</h2>
-  <div class="grid md:grid-cols-2 gap-6">
-    <!-- FIAP -->
-    <div class="bg-white/90 dark:bg-gray-800/90 rounded-lg shadow p-4 flex flex-col items-center">
-      <img src="/static/certificados/fiap_thumb.png" alt="Thumb FIAP Cybersecurity" class="w-28 h-20 object-contain rounded mb-2 border" loading="lazy">
-      <div class="font-semibold text-lg mb-1 text-center">FIAP - Cybersecurity</div>
-      <div class="text-sm text-gray-500 mb-2">2024</div>
-      <a href="/static/certificados/Fiap Cybersecurity.pdf" target="_blank" class="text-blue-600 hover:underline">Ver PDF</a>
-    </div>
-    <!-- Google Redes -->
-    <div class="bg-white/90 dark:bg-gray-800/90 rounded-lg shadow p-4 flex flex-col items-center">
-      <img src="/static/certificados/google_redes_thumb.png" alt="Thumb Google Redes" class="w-28 h-20 object-contain rounded mb-2 border" loading="lazy">
-      <div class="font-semibold text-lg mb-1 text-center">Google - Estrutura e Funcionamento das Redes de Computadores</div>
-      <div class="text-sm text-gray-500 mb-2">2025</div>
-      <a href="/static/certificados/Google Estrutura e Funcionamento das Redes de Computadores.pdf" target="_blank" class="text-blue-600 hover:underline">Ver PDF</a>
-    </div>
-    <!-- Google Suporte Técnico -->
-    <div class="bg-white/90 dark:bg-gray-800/90 rounded-lg shadow p-4 flex flex-col items-center">
-      <img src="/static/certificados/google_suporte_thumb.png" alt="Thumb Google Suporte Técnico" class="w-28 h-20 object-contain rounded mb-2 border" loading="lazy">
-      <div class="font-semibold text-lg mb-1 text-center">Google - Fundamentos do Suporte Técnico</div>
-      <div class="text-sm text-gray-500 mb-2">2025</div>
-      <a href="/static/certificados/Google Fundamentos do Suporte Técnico.pdf" target="_blank" class="text-blue-600 hover:underline">Ver PDF</a>
-    </div>
-    <!-- Google Sistemas Operacionais -->
-    <div class="bg-white/90 dark:bg-gray-800/90 rounded-lg shadow p-4 flex flex-col items-center">
-      <img src="/static/certificados/google_sistemas_thumb.png" alt="Thumb Google Sistemas Operacionais" class="w-28 h-20 object-contain rounded mb-2 border" loading="lazy">
-      <div class="font-semibold text-lg mb-1 text-center">Google - Sistemas Operacionais</div>
-      <div class="text-sm text-gray-500 mb-2">2025</div>
-      <a href="/static/certificados/Google Sistemas Operacionais.pdf" target="_blank" class="text-blue-600 hover:underline">Ver PDF</a>
-    </div>
-  </div>
-</section>
+    <!-- CERTIFICADOS - CARROSSEL SWIPER -->
+    <section id="certificados" class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Certificados</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <!-- FIAP -->
+          <div class="swiper-slide w-80 flex flex-col items-center bg-white/90 dark:bg-gray-800/90 rounded-xl shadow-lg p-6 relative">
+            <span class="absolute top-4 left-4 bg-pink-200 text-pink-900 px-3 py-0.5 rounded-full text-xs font-semibold">FIAP</span>
+            <button onclick="openModal('/static/certificados/fiap_thumb.png')" class="focus:outline-none group">
+              <img src="/static/certificados/fiap_thumb.png" alt="Thumb FIAP Cybersecurity" class="w-56 aspect-[4/3] object-contain rounded border mb-3 shadow group-hover:scale-110 transition-transform" loading="lazy">
+            </button>
+            <div class="font-bold text-center mt-1">FIAP - Cybersecurity</div>
+            <div class="text-xs text-gray-500 mb-2">2024</div>
+            <div class="flex gap-3">
+              <a href="/static/certificados/Fiap Cybersecurity.pdf" target="_blank" class="text-blue-600 hover:underline text-sm">Ver PDF</a>
+            </div>
+          </div>
+          <!-- Google Redes -->
+          <div class="swiper-slide w-80 flex flex-col items-center bg-white/90 dark:bg-gray-800/90 rounded-xl shadow-lg p-6 relative">
+            <span class="absolute top-4 left-4 bg-yellow-200 text-yellow-900 px-3 py-0.5 rounded-full text-xs font-semibold">Google</span>
+            <button onclick="openModal('/static/certificados/google_redes_thumb.png')" class="focus:outline-none group">
+              <img src="/static/certificados/google_redes_thumb.png" alt="Thumb Google Redes" class="w-56 aspect-[4/3] object-contain rounded border mb-3 shadow group-hover:scale-110 transition-transform" loading="lazy">
+            </button>
+            <div class="font-bold text-center mt-1 truncate w-full">Google - Estrutura e Funcionamento das Redes de Computadores</div>
+            <div class="text-xs text-gray-500 mb-2">2025</div>
+            <div class="flex gap-3">
+              <a href="/static/certificados/Google Estrutura e Funcionamento das Redes de Computadores.pdf" target="_blank" class="text-blue-600 hover:underline text-sm">Ver PDF</a>
+            </div>
+          </div>
+          <!-- Google Suporte Técnico -->
+          <div class="swiper-slide w-80 flex flex-col items-center bg-white/90 dark:bg-gray-800/90 rounded-xl shadow-lg p-6 relative">
+            <span class="absolute top-4 left-4 bg-yellow-200 text-yellow-900 px-3 py-0.5 rounded-full text-xs font-semibold">Google</span>
+            <button onclick="openModal('/static/certificados/google_suporte_thumb.png')" class="focus:outline-none group">
+              <img src="/static/certificados/google_suporte_thumb.png" alt="Thumb Google Suporte Técnico" class="w-56 aspect-[4/3] object-contain rounded border mb-3 shadow group-hover:scale-110 transition-transform" loading="lazy">
+            </button>
+            <div class="font-bold text-center mt-1 truncate w-full">Google - Fundamentos do Suporte Técnico</div>
+            <div class="text-xs text-gray-500 mb-2">2025</div>
+            <div class="flex gap-3">
+              <a href="/static/certificados/Google Fundamentos do Suporte Técnico.pdf" target="_blank" class="text-blue-600 hover:underline text-sm">Ver PDF</a>
+            </div>
+          </div>
+          <!-- Google Sistemas Operacionais -->
+          <div class="swiper-slide w-80 flex flex-col items-center bg-white/90 dark:bg-gray-800/90 rounded-xl shadow-lg p-6 relative">
+            <span class="absolute top-4 left-4 bg-yellow-200 text-yellow-900 px-3 py-0.5 rounded-full text-xs font-semibold">Google</span>
+            <button onclick="openModal('/static/certificados/google_sistemas_thumb.png')" class="focus:outline-none group">
+              <img src="/static/certificados/google_sistemas_thumb.png" alt="Thumb Google Sistemas Operacionais" class="w-56 aspect-[4/3] object-contain rounded border mb-3 shadow group-hover:scale-110 transition-transform" loading="lazy">
+            </button>
+            <div class="font-bold text-center mt-1 truncate w-full">Google - Sistemas Operacionais</div>
+            <div class="text-xs text-gray-500 mb-2">2025</div>
+            <div class="flex gap-3">
+              <a href="/static/certificados/Google Sistemas Operacionais.pdf" target="_blank" class="text-blue-600 hover:underline text-sm">Ver PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Lightbox -->
+      <div id="modal-bg" class="hidden fixed inset-0 bg-black/70 z-50 flex items-center justify-center">
+        <button onclick="closeModal()" class="absolute top-4 right-8 text-3xl text-white font-bold z-60">&times;</button>
+        <img id="modal-img" src="" alt="Certificado ampliado" class="max-h-[80vh] max-w-[90vw] rounded shadow-lg border-4 border-white">
+      </div>
+    </section>
     <!-- CONTATO -->
     <section id="contato" class="mb-12">
       <h2 class="text-2xl font-bold mb-4">Contato</h2>
@@ -164,58 +195,94 @@
         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Enviar</button>
         <span id="form-msg" class="text-green-600"></span>
       </form>
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          // Botão dark mode
-          const btn = document.getElementById('dark-toggle');
-          function updateThemeIcon() {
-            btn.innerText = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
-          }
-          // Aplica o tema salvo (ou segue o sistema se não houver preferência)
-          const userTheme = localStorage.getItem('theme');
-          if (userTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-          } else if (userTheme === 'light') {
-            document.documentElement.classList.remove('dark');
-          } else {
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-              document.documentElement.classList.add('dark');
-            } else {
-              document.documentElement.classList.remove('dark');
-            }
-          }
-          updateThemeIcon();
-          btn.onclick = function() {
-            const isDark = document.documentElement.classList.toggle('dark');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            updateThemeIcon();
-          };
-          // Contact form handler
-          const contactForm = document.getElementById('contact-form');
-          if (contactForm) {
-            contactForm.addEventListener('submit', async function(e) {
-              e.preventDefault();
-              const form = e.target;
-              const data = {
-                nome: form.nome.value,
-                email: form.email.value,
-                mensagem: form.mensagem.value
-              };
-              const res = await fetch('/contato/', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(data)
-              });
-              const result = await res.json();
-              document.getElementById('form-msg').textContent = result.msg || 'Mensagem enviada!';
-            });
-          }
-        });
-      </script>
     </section>
   </main>
   <footer class="text-center text-xs py-6 text-gray-500 bg-white/70 dark:bg-gray-900/70">
     &copy; 2025 Warley Ferraz Almeida. Desenvolvido com <span class="text-blue-600">TailwindCSS</span>.
   </footer>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    // Swiper carrossel infinitamente girando + controle touch/mouse + slides parciais nas laterais
+    document.addEventListener('DOMContentLoaded', function() {
+      new Swiper('.mySwiper', {
+        loop: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        spaceBetween: 24,
+        freeMode: true,
+        speed: 6000,
+        autoplay: {
+          delay: 0, // contínuo
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        },
+        grabCursor: true,
+        breakpoints: {
+          640: { slidesPerView: 1.2 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 2.5 }
+        }
+      });
+
+      // Modal dos certificados
+      window.openModal = function(src) {
+        document.getElementById('modal-img').src = src;
+        document.getElementById('modal-bg').classList.remove('hidden');
+      }
+      window.closeModal = function() {
+        document.getElementById('modal-bg').classList.add('hidden');
+        document.getElementById('modal-img').src = '';
+      }
+      document.getElementById('modal-bg').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+      });
+
+      // Botão dark mode
+      const btn = document.getElementById('dark-toggle');
+      function updateThemeIcon() {
+        btn.innerText = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+      }
+      const userTheme = localStorage.getItem('theme');
+      if (userTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else if (userTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      }
+      updateThemeIcon();
+      btn.onclick = function() {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateThemeIcon();
+      };
+
+      // Contact form handler
+      const contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const form = e.target;
+          const data = {
+            nome: form.nome.value,
+            email: form.email.value,
+            mensagem: form.mensagem.value
+          };
+          const res = await fetch('/contato/', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+          });
+          const result = await res.json();
+          document.getElementById('form-msg').textContent = result.msg || 'Mensagem enviada!';
+        });
+      }
+    });
+  </script>
 </body>
 </html>
