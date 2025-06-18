@@ -11,8 +11,18 @@
   <link rel="icon" href="/static/favicon.ico">
   <link rel="stylesheet" href="/static/custom.css">
   <link rel="stylesheet" href="/static/custom-certificados.css">
+  <style>
+    /* Fade In Up Animation */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out both;
+    }
+  </style>
 </head>
-<body class="font-['Inter'] bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 text-gray-900 dark:text-gray-50">
+<body class="font-['Inter'] bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 text-gray-900 dark:text-gray-50 transition-colors duration-300">
   <!-- NAVBAR -->
   <nav class="bg-white/70 dark:bg-gray-800/70 border-b-2 border-blue-500 fixed w-full z-10 shadow-lg backdrop-blur-md">
     <div class="max-w-5xl mx-auto px-4 py-2 flex justify-between items-center">
@@ -50,66 +60,66 @@
   </nav>
   <!-- Botão Dark Mode -->
   <button id="dark-toggle"
-    class="fixed top-4 right-4 bg-gray-300 dark:bg-gray-700 rounded px-2 py-1 z-50 text-xl shadow hover:scale-110 transition"
+    class="fixed top-4 right-4 bg-gray-300 dark:bg-gray-700 rounded px-2 py-1 z-50 text-xl shadow hover:scale-110 transition-transform"
     aria-label="Alternar dark mode">🌙</button>
   <main class="pt-32 max-w-4xl mx-auto px-4">
     <!-- HOME -->
-    <section class="text-center mb-12">
+    <section class="text-center mb-12 fade-in-up">
       <img src="https://avatars.githubusercontent.com/u/Frraz?v=4"
         alt="Foto de perfil"
-        class="mx-auto w-36 h-36 rounded-full border-4 border-blue-500 shadow-lg mb-4 transition hover:scale-105 hover:shadow-2xl" />
+        class="mx-auto w-36 h-36 rounded-full border-4 border-blue-500 shadow-lg mb-4 transition-transform duration-300 hover:scale-110 hover:shadow-2xl" />
       <h1 class="text-4xl font-extrabold mb-2 tracking-tight">Warley Ferraz Almeida</h1>
       <p class="text-xl mb-4 text-gray-700 dark:text-gray-200">Desenvolvedor | Backend | DevOps | DevSecOps | Cybersecurity</p>
       <div class="flex justify-center gap-4">
-        <a href="https://github.com/Frraz" class="text-gray-600 hover:text-black transition" target="_blank" aria-label="GitHub">
+        <a href="https://github.com/Frraz" class="text-gray-600 hover:text-black transition-colors duration-200 hover:-translate-y-1 hover:scale-110" target="_blank" aria-label="GitHub">
           <svg class="inline w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12..."/></svg>
           GitHub
         </a>
-        <a href="https://www.linkedin.com/in/warley-ferraz-almeida-280a55185/" class="text-blue-700 hover:text-blue-900 transition" target="_blank" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/warley-ferraz-almeida-280a55185/" class="text-blue-700 hover:text-blue-900 transition-colors duration-200 hover:-translate-y-1 hover:scale-110" target="_blank" aria-label="LinkedIn">
           <svg class="inline w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5..."/></svg>
           LinkedIn
         </a>
       </div>
     </section>
     <!-- SOBRE MIM -->
-    <section id="sobre" class="mb-12">
+    <section id="sobre" class="mb-12 fade-in-up">
       <h2 class="text-2xl font-bold mb-4">Sobre Mim</h2>
       <p class="text-lg text-gray-700 dark:text-gray-200">
         Sou estudante de <strong>Análise e Desenvolvimento de Sistemas</strong> (96% concluído) com experiência em projetos práticos e certificações relevantes. Tenho interesse especial por <span class="font-semibold text-blue-600 dark:text-blue-400">Backend, DevOps, DevSecOps e Cybersecurity</span>. Busco atuar em times inovadores, entregando soluções eficientes e seguras.
       </p>
     </section>
     <!-- SKILLS -->
-    <section id="skills" class="mb-12">
+    <section id="skills" class="mb-12 fade-in-up">
       <h2 class="text-2xl font-bold mb-4">Skills</h2>
       <div class="flex flex-wrap gap-2 mb-4">
-        <span class="inline-flex items-center bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold gap-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-4 h-4"> Python</span>
-        <span class="inline-flex items-center bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold gap-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" class="w-4 h-4"> Linux</span>
-        <span class="inline-flex items-center bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold gap-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-4 h-4"> MySQL</span>
-        <span class="inline-flex items-center bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold gap-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="w-4 h-4"> HTML</span>
-        <span class="inline-flex items-center bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-semibold gap-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="w-4 h-4"> CSS</span>
-        <span class="inline-flex items-center bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm font-semibold gap-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-4 h-4"> JavaScript</span>
+        <span class="inline-flex items-center bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold gap-1 transition-transform duration-200 hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-4 h-4"> Python</span>
+        <span class="inline-flex items-center bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold gap-1 transition-transform duration-200 hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" class="w-4 h-4"> Linux</span>
+        <span class="inline-flex items-center bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold gap-1 transition-transform duration-200 hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-4 h-4"> MySQL</span>
+        <span class="inline-flex items-center bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold gap-1 transition-transform duration-200 hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="w-4 h-4"> HTML</span>
+        <span class="inline-flex items-center bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-semibold gap-1 transition-transform duration-200 hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="w-4 h-4"> CSS</span>
+        <span class="inline-flex items-center bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm font-semibold gap-1 transition-transform duration-200 hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-4 h-4"> JavaScript</span>
       </div>
     </section>
     <!-- PROJETOS -->
-    <section id="projetos" class="mb-12">
+    <section id="projetos" class="mb-12 fade-in-up">
       <h2 class="text-2xl font-bold mb-4">Projetos</h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-white/90 dark:bg-gray-800/90 shadow-xl rounded-xl border-t-4 border-blue-500 p-6 hover:scale-[1.03] hover:shadow-2xl transition">
+        <div class="bg-white/90 dark:bg-gray-800/90 shadow-xl rounded-xl border-t-4 border-blue-500 p-6 hover:scale-105 hover:shadow-2xl transition-transform duration-300 ease-in-out fade-in-up">
           <h3 class="text-xl font-bold mb-2">Gerador de KML</h3>
           <span class="inline-block bg-blue-200 text-blue-800 px-2 py-0.5 rounded text-xs mb-2 font-semibold">Python</span>
           <p class="mb-2 text-gray-700 dark:text-gray-200">Ferramenta para geração de arquivos KML. Facilidade e automação para mapas.</p>
-          <a href="https://github.com/Frraz/Gerador-de-KML" target="_blank" class="text-blue-600 hover:text-blue-900 font-bold flex items-center gap-1">
+          <a href="https://github.com/Frraz/Gerador-de-KML" target="_blank" class="text-blue-600 hover:text-blue-900 font-bold flex items-center gap-1 transition-all duration-200 hover:-translate-y-1 hover:scale-110">
             Ver no GitHub
             <svg class="inline w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M14 3h7m0 0v7m0-7L10 14M5 19h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/>
             </svg>
           </a>
         </div>
-        <div class="bg-white/90 dark:bg-gray-800/90 shadow-xl rounded-xl border-t-4 border-green-500 p-6 hover:scale-[1.03] hover:shadow-2xl transition">
+        <div class="bg-white/90 dark:bg-gray-800/90 shadow-xl rounded-xl border-t-4 border-green-500 p-6 hover:scale-105 hover:shadow-2xl transition-transform duration-300 ease-in-out fade-in-up">
           <h3 class="text-xl font-bold mb-2">Gestão Agro</h3>
           <span class="inline-block bg-green-200 text-green-800 px-2 py-0.5 rounded text-xs mb-2 font-semibold">Python</span>
           <p class="mb-2 text-gray-700 dark:text-gray-200">Sistema de gestão para o agronegócio.</p>
-          <a href="https://github.com/Frraz/Gestao-Agro" target="_blank" class="text-blue-600 hover:text-blue-900 font-bold flex items-center gap-1">
+          <a href="https://github.com/Frraz/Gestao-Agro" target="_blank" class="text-blue-600 hover:text-blue-900 font-bold flex items-center gap-1 transition-all duration-200 hover:-translate-y-1 hover:scale-110">
             Ver no GitHub
             <svg class="inline w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M14 3h7m0 0v7m0-7L10 14M5 19h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/>
@@ -119,11 +129,11 @@
       </div>
     </section>
     <!-- CERTIFICADOS - GRADE SIMPLES -->
-    <section id="certificados" class="mb-12">
+    <section id="certificados" class="mb-12 fade-in-up">
       <h2 class="text-2xl font-bold mb-8 text-center">Certificados</h2>
       <div class="w-full grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
         <!-- Card FIAP -->
-        <div class="card">
+        <div class="card fade-in-up">
           <div class="card-details">
             <a href="/static/certificados/Fiap Cybersecurity.pdf" target="_blank" rel="noopener">
               <img src="/static/certificados/fiap_thumb.png" alt="FIAP Cybersecurity" class="w-44 h-32 object-contain mx-auto mb-2 rounded-md border border-gray-200 shadow transition-transform duration-200 hover:scale-110">
@@ -135,7 +145,7 @@
           <a href="/static/certificados/Fiap Cybersecurity.pdf" target="_blank" class="card-button">Ver PDF</a>
         </div>
         <!-- Card Google Redes -->
-        <div class="card">
+        <div class="card fade-in-up">
           <div class="card-details">
             <a href="/static/certificados/Google Estrutura e Funcionamento das Redes de Computadores.pdf" target="_blank" rel="noopener">
               <img src="/static/certificados/google_redes_thumb.png" alt="Google Redes" class="w-44 h-32 object-contain mx-auto mb-2 rounded-md border border-gray-200 shadow transition-transform duration-200 hover:scale-110">
@@ -147,7 +157,7 @@
           <a href="/static/certificados/Google Estrutura e Funcionamento das Redes de Computadores.pdf" target="_blank" class="card-button">Ver PDF</a>
         </div>
         <!-- Card Google Suporte Técnico -->
-        <div class="card">
+        <div class="card fade-in-up">
           <div class="card-details">
             <a href="/static/certificados/Google Fundamentos do Suporte Técnico.pdf" target="_blank" rel="noopener">
               <img src="/static/certificados/google_suporte_thumb.png" alt="Google Suporte Técnico" class="w-44 h-32 object-contain mx-auto mb-2 rounded-md border border-gray-200 shadow transition-transform duration-200 hover:scale-110">
@@ -159,7 +169,7 @@
           <a href="/static/certificados/Google Fundamentos do Suporte Técnico.pdf" target="_blank" class="card-button">Ver PDF</a>
         </div>
         <!-- Card Google Sistemas Operacionais -->
-        <div class="card">
+        <div class="card fade-in-up">
           <div class="card-details">
             <a href="/static/certificados/Google Sistemas Operacionais.pdf" target="_blank" rel="noopener">
               <img src="/static/certificados/google_sistemas_thumb.png" alt="Google Sistemas Operacionais" class="w-44 h-32 object-contain mx-auto mb-2 rounded-md border border-gray-200 shadow transition-transform duration-200 hover:scale-110">
@@ -173,15 +183,14 @@
       </div>
     </section>
 
-
     <!-- CONTATO -->
-    <section id="contato" class="mb-12">
+    <section id="contato" class="mb-12 fade-in-up">
       <h2 class="text-2xl font-bold mb-4">Contato</h2>
       <form id="contact-form" class="flex flex-col gap-4 max-w-md">
-        <input type="text" name="nome" placeholder="Seu nome" required class="px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400" />
-        <input type="email" name="email" placeholder="Seu email" required class="px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400" />
-        <textarea name="mensagem" placeholder="Sua mensagem" required class="px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
-        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Enviar</button>
+        <input type="text" name="nome" placeholder="Seu nome" required class="px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 hover:border-blue-400" />
+        <input type="email" name="email" placeholder="Seu email" required class="px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 hover:border-blue-400" />
+        <textarea name="mensagem" placeholder="Sua mensagem" required class="px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 hover:border-blue-400"></textarea>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-transform duration-200 hover:scale-105">Enviar</button>
         <span id="form-msg" class="text-green-600"></span>
       </form>
     </section>
@@ -192,6 +201,21 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // Fade-in on scroll using Intersection Observer
+  const fadeEls = document.querySelectorAll('.fade-in-up');
+  const observer = new window.IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = "running";
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  fadeEls.forEach(el => {
+    el.style.animationPlayState = "paused";
+    observer.observe(el);
+  });
+
   // Modal dos certificados
   window.openModal = function(src) {
     document.getElementById('modal-img').src = src;
@@ -201,9 +225,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('modal-bg').classList.add('hidden');
     document.getElementById('modal-img').src = '';
   }
-  document.getElementById('modal-bg').addEventListener('click', function(e) {
-    if (e.target === this) closeModal();
-  });
+  if (document.getElementById('modal-bg')) {
+    document.getElementById('modal-bg').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+  }
 
   // Botão dark mode
   const btn = document.getElementById('dark-toggle');
