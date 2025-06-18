@@ -5,3 +5,7 @@
   background: #3b82f6;
   border-radius: 4px;
 }
+
+body {
+  background: #ffeedd !important;
+}
