@@ -157,21 +157,47 @@
         <span id="form-msg" class="text-green-600"></span>
       </form>
       <script>
-        document.getElementById('contact-form').addEventListener('submit', async function(e) {
-          e.preventDefault();
-          const form = e.target;
-          const data = {
-            nome: form.nome.value,
-            email: form.email.value,
-            mensagem: form.mensagem.value
+        document.addEventListener('DOMContentLoaded', function() {
+          // Dark mode toggle with icon and localStorage
+          const btn = document.querySelector('[aria-label="Alternar dark mode"]');
+          // Define helper to update icon
+          function updateThemeIcon() {
+            btn.innerText = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+          }
+          // Apply saved theme
+          if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.remove('dark');
+          } // If nothing in storage, respect system preference (Tailwind does isso automaticamente)
+          updateThemeIcon();
+          btn.onclick = function() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeIcon();
           };
-          const res = await fetch('/contato/', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(data)
-          });
-          const result = await res.json();
-          document.getElementById('form-msg').textContent = result.msg || 'Mensagem enviada!';
+
+          // Contact form handler
+          const contactForm = document.getElementById('contact-form');
+          if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+              e.preventDefault();
+              const form = e.target;
+              const data = {
+                nome: form.nome.value,
+                email: form.email.value,
+                mensagem: form.mensagem.value
+              };
+              const res = await fetch('/contato/', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+              });
+              const result = await res.json();
+              document.getElementById('form-msg').textContent = result.msg || 'Mensagem enviada!';
+            });
+          }
         });
       </script>
     </section>
