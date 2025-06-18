@@ -5,3 +5,10 @@
   background: #3b82f6;
   border-radius: 4px;
 }
+
+@media (max-width: 768px) {
+  #dark-toggle {
+    top: 4.5rem; /* ou maior, para descer abaixo do menu mobile aberto */
+    right: 1rem;
+  }
+}
