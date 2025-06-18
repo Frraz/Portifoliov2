@@ -5,14 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Portfólio pessoal de Warley Ferraz Almeida - desenvolvedor Backend, DevOps, DevSecOps, Cybersecurity. Projetos, certificações, conquistas e contato." />
   <title>Warley Ferraz Almeida | Portfólio</title>
-  <!-- Tailwind CDN -->
+  <!-- Tailwind Config for CDN: darkMode enabled via class -->
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" href="/static/favicon.ico">
   <link rel="stylesheet" href="/static/custom.css">
   <link rel="stylesheet" href="/static/custom-certificados.css">
   <style>
-    /* Fade In Up Animation */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px);}
       to { opacity: 1; transform: translateY(0);}
@@ -35,7 +37,6 @@
         <li><a href="#conquistas" class="hover:text-blue-600 transition-colors">Conquistas</a></li>
         <li><a href="#contato" class="hover:text-blue-600 transition-colors">Contato</a></li>
       </ul>
-      <!-- Botão menu mobile -->
       <button class="md:hidden flex items-center" id="menu-btn" aria-label="Abrir menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -65,20 +66,14 @@
   <main class="pt-32 max-w-4xl mx-auto px-4">
     <!-- HOME -->
     <section class="text-center mb-12 fade-in-up">
-      <img src="https://avatars.githubusercontent.com/u/Frraz?v=4"
+      <img src="/static/fotoperfil.jpg"
         alt="Foto de perfil"
         class="mx-auto w-36 h-36 rounded-full border-4 border-blue-500 shadow-lg mb-4 transition-transform duration-300 hover:scale-110 hover:shadow-2xl" />
       <h1 class="text-4xl font-extrabold mb-2 tracking-tight">Warley Ferraz Almeida</h1>
       <p class="text-xl mb-4 text-gray-700 dark:text-gray-200">Desenvolvedor | Backend | DevOps | DevSecOps | Cybersecurity</p>
       <div class="flex justify-center gap-4">
-        <a href="https://github.com/Frraz" class="text-gray-600 hover:text-black transition-colors duration-200 hover:-translate-y-1 hover:scale-110" target="_blank" aria-label="GitHub">
-          <svg class="inline w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12..."/></svg>
-          GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/warley-ferraz-almeida-280a55185/" class="text-blue-700 hover:text-blue-900 transition-colors duration-200 hover:-translate-y-1 hover:scale-110" target="_blank" aria-label="LinkedIn">
-          <svg class="inline w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5..."/></svg>
-          LinkedIn
-        </a>
+        <a href="https://github.com/Frraz" class="text-gray-600 hover:text-black transition-colors duration-200 hover:-translate-y-1 hover:scale-110" target="_blank" aria-label="GitHub">GitHub</a>
+        <a href="https://www.linkedin.com/in/warley-ferraz-almeida-280a55185/" class="text-blue-700 hover:text-blue-900 transition-colors duration-200 hover:-translate-y-1 hover:scale-110" target="_blank" aria-label="LinkedIn">LinkedIn</a>
       </div>
     </section>
     <!-- SOBRE MIM -->
@@ -110,9 +105,6 @@
           <p class="mb-2 text-gray-700 dark:text-gray-200">Ferramenta para geração de arquivos KML. Facilidade e automação para mapas.</p>
           <a href="https://github.com/Frraz/Gerador-de-KML" target="_blank" class="text-blue-600 hover:text-blue-900 font-bold flex items-center gap-1 transition-all duration-200 hover:-translate-y-1 hover:scale-110">
             Ver no GitHub
-            <svg class="inline w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14 3h7m0 0v7m0-7L10 14M5 19h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-            </svg>
           </a>
         </div>
         <div class="bg-white/90 dark:bg-gray-800/90 shadow-xl rounded-xl border-t-4 border-green-500 p-6 hover:scale-105 hover:shadow-2xl transition-transform duration-300 ease-in-out fade-in-up">
@@ -121,22 +113,18 @@
           <p class="mb-2 text-gray-700 dark:text-gray-200">Sistema de gestão para o agronegócio.</p>
           <a href="https://github.com/Frraz/Gestao-Agro" target="_blank" class="text-blue-600 hover:text-blue-900 font-bold flex items-center gap-1 transition-all duration-200 hover:-translate-y-1 hover:scale-110">
             Ver no GitHub
-            <svg class="inline w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14 3h7m0 0v7m0-7L10 14M5 19h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-            </svg>
           </a>
         </div>
       </div>
     </section>
-    <!-- CERTIFICADOS - GRADE SIMPLES -->
+    <!-- CERTIFICADOS -->
     <section id="certificados" class="mb-12 fade-in-up">
       <h2 class="text-2xl font-bold mb-8 text-center">Certificados</h2>
       <div class="w-full grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
-        <!-- Card FIAP -->
         <div class="card fade-in-up">
           <div class="card-details">
             <a href="/static/certificados/Fiap Cybersecurity.pdf" target="_blank" rel="noopener">
-              <img src="/static/certificados/fiap_thumb.png" alt="FIAP Cybersecurity" class="w-44 h-32 object-contain mx-auto mb-2 rounded-md border border-gray-200 shadow transition-transform duration-200 hover:scale-110">
+              <img src="/static/certificados/fiap_thumb.png" alt="FIAP Cybersecurity" class="w-44 h-32 object-contain mx-auto mb-2 rounded-md border border-gray-200 shadow transition-transform duration-200 hover:scale-110"/>
             </a>
             <p class="text-title">FIAP - Cybersecurity</p>
             <p class="text-body">Curso de Cybersecurity da FIAP.</p>
@@ -144,11 +132,10 @@
           </div>
           <a href="/static/certificados/Fiap Cybersecurity.pdf" target="_blank" class="card-button">Ver PDF</a>
         </div>
-        <!-- Card Google Redes -->
         <div class="card fade-in-up">
           <div class="card-details">
             <a href="/static/certificados/Google Estrutura e Funcionamento das Redes de Computadores.pdf" target="_blank" rel="noopener">
-              <img src="/static/certificados/google_redes_thumb.png" alt="Google Redes" class="w-44 h-32 object-contain mx-auto mb-2 rounded-md border border-gray-200 shadow transition-transform duration-200 hover:scale-110">
+              <img src="/static/certificados/google_redes_thumb.png" alt="Google Redes" class="w-44 h-32 object-contain mx-auto mb-2 rounded-md border border-gray-200 shadow transition-transform duration-200 hover:scale-110"/>
             </a>
             <p class="text-title">Google - Estrutura e Redes</p>
             <p class="text-body">Coursera - Google IT Support.</p>
@@ -156,11 +143,10 @@
           </div>
           <a href="/static/certificados/Google Estrutura e Funcionamento das Redes de Computadores.pdf" target="_blank" class="card-button">Ver PDF</a>
         </div>
-        <!-- Card Google Suporte Técnico -->
         <div class="card fade-in-up">
           <div class="card-details">
             <a href="/static/certificados/Google Fundamentos do Suporte Técnico.pdf" target="_blank" rel="noopener">
-              <img src="/static/certificados/google_suporte_thumb.png" alt="Google Suporte Técnico" class="w-44 h-32 object-contain mx-auto mb-2 rounded-md border border-gray-200 shadow transition-transform duration-200 hover:scale-110">
+              <img src="/static/certificados/google_suporte_thumb.png" alt="Google Suporte Técnico" class="w-44 h-32 object-contain mx-auto mb-2 rounded-md border border-gray-200 shadow transition-transform duration-200 hover:scale-110"/>
             </a>
             <p class="text-title">Google - Suporte Técnico</p>
             <p class="text-body">Coursera - Google IT Support.</p>
@@ -168,11 +154,10 @@
           </div>
           <a href="/static/certificados/Google Fundamentos do Suporte Técnico.pdf" target="_blank" class="card-button">Ver PDF</a>
         </div>
-        <!-- Card Google Sistemas Operacionais -->
         <div class="card fade-in-up">
           <div class="card-details">
             <a href="/static/certificados/Google Sistemas Operacionais.pdf" target="_blank" rel="noopener">
-              <img src="/static/certificados/google_sistemas_thumb.png" alt="Google Sistemas Operacionais" class="w-44 h-32 object-contain mx-auto mb-2 rounded-md border border-gray-200 shadow transition-transform duration-200 hover:scale-110">
+              <img src="/static/certificados/google_sistemas_thumb.png" alt="Google Sistemas Operacionais" class="w-44 h-32 object-contain mx-auto mb-2 rounded-md border border-gray-200 shadow transition-transform duration-200 hover:scale-110"/>
             </a>
             <p class="text-title">Google - Sistemas Operacionais</p>
             <p class="text-body">Coursera - Google IT Support.</p>
@@ -182,7 +167,6 @@
         </div>
       </div>
     </section>
-
     <!-- CONTATO -->
     <section id="contato" class="mb-12 fade-in-up">
       <h2 class="text-2xl font-bold mb-4">Contato</h2>
@@ -198,9 +182,13 @@
   <footer class="text-center text-xs py-6 text-gray-500 bg-white/70 dark:bg-gray-900/70">
     &copy; 2025 Warley Ferraz Almeida. Desenvolvido com <span class="text-blue-600">TailwindCSS</span>.
   </footer>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // Navbar mobile menu
+  document.getElementById('menu-btn').onclick = function() {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  };
+
   // Fade-in on scroll using Intersection Observer
   const fadeEls = document.querySelectorAll('.fade-in-up');
   const observer = new window.IntersectionObserver((entries, obs) => {
@@ -216,43 +204,33 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(el);
   });
 
-  // Modal dos certificados
-  window.openModal = function(src) {
-    document.getElementById('modal-img').src = src;
-    document.getElementById('modal-bg').classList.remove('hidden');
-  }
-  window.closeModal = function() {
-    document.getElementById('modal-bg').classList.add('hidden');
-    document.getElementById('modal-img').src = '';
-  }
-  if (document.getElementById('modal-bg')) {
-    document.getElementById('modal-bg').addEventListener('click', function(e) {
-      if (e.target === this) closeModal();
-    });
-  }
-
   // Botão dark mode
   const btn = document.getElementById('dark-toggle');
   function updateThemeIcon() {
     btn.innerText = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
   }
-  const userTheme = localStorage.getItem('theme');
-  if (userTheme === 'dark') {
-    document.documentElement.classList.add('dark');
-  } else if (userTheme === 'light') {
-    document.documentElement.classList.remove('dark');
-  } else {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  function setThemeClass(isDark) {
+    if (isDark) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }
-  updateThemeIcon();
-  btn.onclick = function() {
-    const isDark = document.documentElement.classList.toggle('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
     updateThemeIcon();
+  }
+  // Inicialização do tema ao carregar a página
+  const userTheme = localStorage.getItem('theme');
+  if (userTheme === 'dark') {
+    setThemeClass(true);
+  } else if (userTheme === 'light') {
+    setThemeClass(false);
+  } else {
+    setThemeClass(window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }
+  // Alternância ao clicar no botão
+  btn.onclick = function() {
+    const isDark = !document.documentElement.classList.contains('dark');
+    setThemeClass(isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
   };
 
   // Contact form handler
