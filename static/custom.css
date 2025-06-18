@@ -1,3 +1,4 @@
+/* Personalização da barra de rolagem (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -5,10 +6,15 @@
   background: #3b82f6;
   border-radius: 4px;
 }
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
 
+/* Ajuste do botão de tema no mobile */
 @media (max-width: 768px) {
   #dark-toggle {
-    top: 4.5rem; /* ou maior, para descer abaixo do menu mobile aberto */
+    top: 4.5rem; /* desce abaixo do menu mobile aberto */
     right: 1rem;
+    z-index: 100; /* garante sobreposição correta */
   }
 }

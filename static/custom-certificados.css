@@ -13,6 +13,8 @@
  justify-content: flex-end;
  margin-bottom: 1.2rem;
 }
+/* Card estilizado, layout flex, responsivo e com transição suave. */
+
 .card-details {
  color: black;
  height: 100%;
@@ -22,6 +24,8 @@
  align-items: center;
  justify-content: flex-start;
 }
+/* gap: .3em é bom, mas .5rem deixaria o padrão mais consistente com o resto do CSS moderno */
+
 .card-button {
  transform: translate(-50%, 125%);
  width: 70%;
@@ -39,17 +43,21 @@
  text-align: center;
  text-decoration: none;
 }
+/* Botão escondido até o hover, ótima UX! */
+
 .text-body {
  color: rgb(134, 134, 134);
  text-align: center;
  font-size: 0.95em;
 }
+
 .text-title {
  font-size: 1.07em;
  font-weight: bold;
  text-align: center;
  margin-bottom: 0.15em;
 }
+
 .card:hover {
  border-color: #008bf8;
  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.22);
@@ -58,14 +66,35 @@
  transform: translate(-50%, 50%);
  opacity: 1;
 }
+/* Ao passar o mouse o botão aparece suavemente e o card ganha destaque. */
 
 .card-details img {
   transition: transform 0.25s cubic-bezier(.4,2,.3,1), box-shadow 0.2s;
 }
-
 .card:hover .card-details img {
   transform: scale(1.10);
   box-shadow: 0 6px 28px 0 rgba(0,0,0,0.18);
+}
+/* Destaque visual na imagem do card ao hover. */
+
+/* Suporte ao modo escuro */
+.dark .card {
+  background: #222a35;
+  border-color: #224466;
+}
+.dark .card-details {
+  color: #eee;
+}
+/* Agora os cards ficam bonitos no dark mode! */
+
+.card-button:focus {
+  outline: 2px solid #008bf8;
+  outline-offset: 2px;
+}
+/* Acessibilidade: foco visível no botão, ótimo para navegação via teclado. */
+
+.dark .card {
+  transition: background 0.3s, border-color 0.3s;
 }
 
 @media (max-width: 640px) {
@@ -82,3 +111,4 @@
     min-height: 110px;
   }
 }
+/* Responsividade para dispositivos móveis, garante boa visualização e toque/scroll. */
