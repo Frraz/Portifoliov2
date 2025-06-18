@@ -6,22 +6,20 @@
    ```
    pip install -r requirements.txt
    ```
-
 2. Rode o servidor:
    ```
    uvicorn main:app --reload
    ```
-
 3. Acesse em [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
----
+## Tecnologias
+
+- Frontend: HTML + TailwindCSS + Google Fonts
+- Backend: FastAPI
+- Hospedagem: Railway/Render
 
 ## Estrutura
 
-- Frontend: HTML + Tailwind (em `/templates/index.html`)
-- Backend: FastAPI (`main.py`)
-- Estáticos: `/static/`
-
----
-
-Sinta-se à vontade para personalizar!
+- `/static/`: Imagens, CSS, favicon
+- `/templates/`: HTML
+- `main.py`: Backend
