@@ -51,13 +51,6 @@
       <li><a href="#conquistas" class="block py-2 hover:text-blue-600">Conquistas</a></li>
       <li><a href="#contato" class="block py-2 hover:text-blue-600">Contato</a></li>
     </ul>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('menu-btn').onclick = function() {
-          document.getElementById('mobile-menu').classList.toggle('hidden');
-        }
-      });
-    </script>
   </nav>
   <!-- Botão Dark Mode -->
   <button id="dark-toggle"
@@ -169,15 +162,31 @@
     </section>
     <!-- CONTATO -->
     <section id="contato" class="mb-12 fade-in-up">
-      <h2 class="text-2xl font-bold mb-4">Contato</h2>
-      <form id="contact-form" class="flex flex-col gap-4 max-w-md">
-        <input type="text" name="nome" placeholder="Seu nome" required class="px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 hover:border-blue-400" />
-        <input type="email" name="email" placeholder="Seu email" required class="px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 hover:border-blue-400" />
-        <textarea name="mensagem" placeholder="Sua mensagem" required class="px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 hover:border-blue-400"></textarea>
-        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-transform duration-200 hover:scale-105">Enviar</button>
-        <span id="form-msg" class="text-green-600"></span>
+      <h2 class="text-2xl font-bold mb-4 text-center">Contato</h2>
+      <form id="contact-form" class="flex flex-col gap-4 max-w-md mx-auto bg-white/80 dark:bg-gray-800/80 p-6 rounded-xl shadow-lg"
+            autocomplete="off" aria-labelledby="contato-titulo">
+        <label for="nome" class="sr-only">Nome</label>
+        <input id="nome" type="text" name="nome" placeholder="Seu nome" required
+          class="px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-transparent text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 hover:border-blue-400"
+          autocomplete="name" />
+
+        <label for="email" class="sr-only">Email</label>
+        <input id="email" type="email" name="email" placeholder="Seu email" required
+          class="px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-transparent text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 hover:border-blue-400"
+          autocomplete="email" />
+
+        <label for="mensagem" class="sr-only">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Sua mensagem" required
+          class="px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-transparent text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 hover:border-blue-400"></textarea>
+
+        <button type="submit"
+          class="bg-blue-600 text-white font-bold px-4 py-2 rounded hover:bg-blue-700 transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900">
+          Enviar
+        </button>
+        <span id="form-msg" class="text-center text-sm min-h-[24px] transition-colors duration-200" aria-live="polite"></span>
       </form>
     </section>
+
   </main>
   <footer class="text-center text-xs py-6 text-gray-500 bg-white/70 dark:bg-gray-900/70">
     &copy; 2025 Warley Ferraz Almeida. Desenvolvido com <span class="text-blue-600">TailwindCSS</span>.
@@ -244,13 +253,21 @@ document.addEventListener('DOMContentLoaded', function() {
         email: form.email.value,
         mensagem: form.mensagem.value
       };
-      const res = await fetch('/contato/', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
-      });
-      const result = await res.json();
-      document.getElementById('form-msg').textContent = result.msg || 'Mensagem enviada!';
+      try {
+        const res = await fetch('/contato/', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data)
+        });
+        if (!res.ok) throw new Error();
+        const result = await res.json();
+        document.getElementById('form-msg').textContent = result.msg || 'Mensagem enviada!';
+        document.getElementById('form-msg').className = "text-green-600 text-center text-sm min-h-[24px] transition-colors duration-200";
+        contactForm.reset();
+      } catch (err) {
+        document.getElementById('form-msg').textContent = 'Erro ao enviar, tente novamente!';
+        document.getElementById('form-msg').className = "text-red-600 text-center text-sm min-h-[24px] transition-colors duration-200";
+      }
     });
   }
 });
