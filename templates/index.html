@@ -51,7 +51,7 @@
     </script>
   </nav>
   <!-- Botão Dark Mode -->
-  <button onclick="document.documentElement.classList.toggle('dark'); this.innerText = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';"
+  <button id="dark-toggle"
     class="fixed top-4 right-4 bg-gray-300 dark:bg-gray-700 rounded px-2 py-1 z-50 text-xl shadow hover:scale-110 transition"
     aria-label="Alternar dark mode">🌙</button>
   <main class="pt-32 max-w-4xl mx-auto px-4">
@@ -87,7 +87,7 @@
         <span class="inline-flex items-center bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold gap-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-4 h-4"> Python</span>
         <span class="inline-flex items-center bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold gap-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" class="w-4 h-4"> Linux</span>
         <span class="inline-flex items-center bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold gap-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-4 h-4"> MySQL</span>
-        <span class="inline-flex items-center bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold gap-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="w-4 h-4"> HTML</span>
+        <span class="inline-flex items-center bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold gap-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="w-4 h-4"> HTML</span>
         <span class="inline-flex items-center bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-semibold gap-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="w-4 h-4"> CSS</span>
         <span class="inline-flex items-center bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm font-semibold gap-1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-4 h-4"> JavaScript</span>
       </div>
@@ -121,31 +121,39 @@
       </div>
     </section>
     <!-- CERTIFICADOS -->
-    <section id="certificados" class="mb-12">
-      <h2 class="text-2xl font-bold mb-4">Certificados</h2>
-      <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-200">
-        <li>FIAP</li>
-        <li>Google/Coursera</li>
-        <li>Curso em Vídeo: Linux, Python, MySQL, Lógica de Programação, Redes, Hardware, HTML, CSS, JavaScript</li>
-      </ul>
-    </section>
-    <!-- CONQUISTAS -->
-    <section id="conquistas" class="mb-12">
-      <h2 class="text-2xl font-bold mb-4">Conquistas</h2>
-      <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-200">
-        <li>Bolsa de estudos Santander Open Academy para bootcamp Java na DIO</li>
-      </ul>
-    </section>
-    <!-- ÁREAS DE INTERESSE -->
-    <section id="interesse" class="mb-12">
-      <h2 class="text-2xl font-bold mb-4">Áreas de Interesse</h2>
-      <div class="flex flex-wrap gap-2">
-        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">Backend</span>
-        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">DevOps</span>
-        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">DevSecOps</span>
-        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">Cybersecurity</span>
-      </div>
-    </section>
+<section id="certificados" class="mb-12">
+  <h2 class="text-2xl font-bold mb-4">Certificados</h2>
+  <div class="grid md:grid-cols-2 gap-6">
+    <!-- FIAP -->
+    <div class="bg-white/90 dark:bg-gray-800/90 rounded-lg shadow p-4 flex flex-col items-center">
+      <img src="/static/certificados/fiap_thumb.png" alt="Thumb FIAP Cybersecurity" class="w-28 h-20 object-contain rounded mb-2 border" loading="lazy">
+      <div class="font-semibold text-lg mb-1 text-center">FIAP - Cybersecurity</div>
+      <div class="text-sm text-gray-500 mb-2">2024</div>
+      <a href="/static/certificados/Fiap Cybersecurity.pdf" target="_blank" class="text-blue-600 hover:underline">Ver PDF</a>
+    </div>
+    <!-- Google Redes -->
+    <div class="bg-white/90 dark:bg-gray-800/90 rounded-lg shadow p-4 flex flex-col items-center">
+      <img src="/static/certificados/google_redes_thumb.png" alt="Thumb Google Redes" class="w-28 h-20 object-contain rounded mb-2 border" loading="lazy">
+      <div class="font-semibold text-lg mb-1 text-center">Google - Estrutura e Funcionamento das Redes de Computadores</div>
+      <div class="text-sm text-gray-500 mb-2">2025</div>
+      <a href="/static/certificados/Google Estrutura e Funcionamento das Redes de Computadores.pdf" target="_blank" class="text-blue-600 hover:underline">Ver PDF</a>
+    </div>
+    <!-- Google Suporte Técnico -->
+    <div class="bg-white/90 dark:bg-gray-800/90 rounded-lg shadow p-4 flex flex-col items-center">
+      <img src="/static/certificados/google_suporte_thumb.png" alt="Thumb Google Suporte Técnico" class="w-28 h-20 object-contain rounded mb-2 border" loading="lazy">
+      <div class="font-semibold text-lg mb-1 text-center">Google - Fundamentos do Suporte Técnico</div>
+      <div class="text-sm text-gray-500 mb-2">2025</div>
+      <a href="/static/certificados/Google Fundamentos do Suporte Técnico.pdf" target="_blank" class="text-blue-600 hover:underline">Ver PDF</a>
+    </div>
+    <!-- Google Sistemas Operacionais -->
+    <div class="bg-white/90 dark:bg-gray-800/90 rounded-lg shadow p-4 flex flex-col items-center">
+      <img src="/static/certificados/google_sistemas_thumb.png" alt="Thumb Google Sistemas Operacionais" class="w-28 h-20 object-contain rounded mb-2 border" loading="lazy">
+      <div class="font-semibold text-lg mb-1 text-center">Google - Sistemas Operacionais</div>
+      <div class="text-sm text-gray-500 mb-2">2025</div>
+      <a href="/static/certificados/Google Sistemas Operacionais.pdf" target="_blank" class="text-blue-600 hover:underline">Ver PDF</a>
+    </div>
+  </div>
+</section>
     <!-- CONTATO -->
     <section id="contato" class="mb-12">
       <h2 class="text-2xl font-bold mb-4">Contato</h2>
@@ -158,26 +166,30 @@
       </form>
       <script>
         document.addEventListener('DOMContentLoaded', function() {
-          // Dark mode toggle with icon and localStorage
-          const btn = document.querySelector('[aria-label="Alternar dark mode"]');
-          // Define helper to update icon
+          // Botão dark mode
+          const btn = document.getElementById('dark-toggle');
           function updateThemeIcon() {
             btn.innerText = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
           }
-          // Apply saved theme
-          if (localStorage.getItem('theme') === 'dark') {
+          // Aplica o tema salvo (ou segue o sistema se não houver preferência)
+          const userTheme = localStorage.getItem('theme');
+          if (userTheme === 'dark') {
             document.documentElement.classList.add('dark');
-          } else if (localStorage.getItem('theme') === 'light') {
+          } else if (userTheme === 'light') {
             document.documentElement.classList.remove('dark');
-          } // If nothing in storage, respect system preference (Tailwind does isso automaticamente)
+          } else {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              document.documentElement.classList.add('dark');
+            } else {
+              document.documentElement.classList.remove('dark');
+            }
+          }
           updateThemeIcon();
           btn.onclick = function() {
-            document.documentElement.classList.toggle('dark');
-            const isDark = document.documentElement.classList.contains('dark');
+            const isDark = document.documentElement.classList.toggle('dark');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
             updateThemeIcon();
           };
-
           // Contact form handler
           const contactForm = document.getElementById('contact-form');
           if (contactForm) {
