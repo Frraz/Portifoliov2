@@ -3,18 +3,28 @@ import smtplib
 import ssl
 from email.message import EmailMessage
 from fastapi import FastAPI, Request, status
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, HTMLResponse
+from fastapi.templating import Jinja2Templates
 from dotenv import load_dotenv
+from fastapi.staticfiles import StaticFiles
 
 # Carrega variáveis de ambiente do .env
 load_dotenv()
 
 app = FastAPI()
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# Templates Jinja2
+templates = Jinja2Templates(directory="templates")
 
 # --- CONFIGURAÇÕES DE E-MAIL ---
-EMAIL_SENDER = os.getenv("EMAIL_SENDER", "ferzion.dev@gmail.com")   # Pode ser definido no .env também!
-EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")                        # Senha de app do Gmail (NÃO sua senha normal!)
+EMAIL_SENDER = os.getenv("EMAIL_SENDER", "ferzion.dev@gmail.com")
+EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER", "ferzion.dev@gmail.com")
+
+@app.get("/", response_class=HTMLResponse)
+async def home(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
 @app.post("/contato/")
 async def contato(request: Request):
@@ -32,12 +42,12 @@ async def contato(request: Request):
 
     subject = f"Contato do Portfólio: {nome}"
     body = f"""
-    Você recebeu uma nova mensagem pelo portfólio:
+Você recebeu uma nova mensagem pelo portfólio:
 
-    Nome: {nome}
-    E-mail: {email}
-    Mensagem:
-    {mensagem}
+Nome: {nome}
+E-mail: {email}
+Mensagem:
+{mensagem}
     """
 
     em = EmailMessage()
