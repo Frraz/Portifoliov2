@@ -307,6 +307,42 @@ document.addEventListener('DOMContentLoaded', function() {
       menuBtn.setAttribute('aria-expanded', 'false');
     });
   });
+
+  // ENVIO DO FORMULÁRIO DE CONTATO VIA FETCH
+  const form = document.getElementById('contact-form');
+  const msgSpan = document.getElementById('form-msg');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      msgSpan.textContent = 'Enviando...';
+
+      const data = {
+        nome: form.nome.value,
+        email: form.email.value,
+        mensagem: form.mensagem.value
+      };
+
+      try {
+        const response = await fetch('/contato/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          msgSpan.textContent = result.msg || "Mensagem enviada!";
+          form.reset();
+        } else {
+          msgSpan.textContent = result.msg || "Erro ao enviar!";
+        }
+      } catch (err) {
+        msgSpan.textContent = "Erro de rede ao tentar enviar.";
+      }
+    });
+  }
 });
 </script>
 </body>
