@@ -20,7 +20,7 @@ templates = Jinja2Templates(directory="templates")
 # --- CONFIGURAÇÕES DE E-MAIL ---
 EMAIL_SENDER = os.getenv("EMAIL_SENDER", "ferzion.dev@gmail.com")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
-EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER", "ferzion.dev@gmail.com")
+EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER", "warley.ferraz.wf@gmail.com")  # Atualizado para o e-mail de recebimento
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
@@ -38,6 +38,21 @@ async def contato(request: Request):
         return JSONResponse(
             {"msg": "Por favor, preencha todos os campos."},
             status_code=status.HTTP_400_BAD_REQUEST
+        )
+
+    # Validação das variáveis de ambiente críticas
+    missing_envs = []
+    if not EMAIL_SENDER:
+        missing_envs.append("EMAIL_SENDER")
+    if not EMAIL_PASSWORD:
+        missing_envs.append("EMAIL_PASSWORD")
+    if not EMAIL_RECEIVER:
+        missing_envs.append("EMAIL_RECEIVER")
+
+    if missing_envs:
+        return JSONResponse(
+            {"msg": f"Erro de configuração: faltando variável(éis) {', '.join(missing_envs)} no .env"},
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
         )
 
     subject = f"Contato do Portfólio: {nome}"
@@ -65,7 +80,8 @@ Mensagem:
         return JSONResponse({"msg": "Mensagem enviada com sucesso!"})
     except Exception as e:
         print("Erro ao enviar e-mail:", e)
+        # Retorna o erro detalhado para facilitar debug em ambiente local
         return JSONResponse(
-            {"msg": "Erro ao enviar mensagem, tente novamente."},
+            {"msg": f"Erro ao enviar mensagem, tente novamente. Detalhe: {str(e)}"},
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
         )
