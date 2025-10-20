@@ -1,5 +1,9 @@
+/* static/custom.css */
+
+/* Barra de rolagem estilizada */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-thumb {
   background: #3b82f6;
@@ -9,6 +13,12 @@
   background: #2563eb;
 }
 
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f6 #f1f5f9;
+}
+
 /* Ajusta o botão dark mode para não sobrepor o menu mobile */
 @media (max-width: 768px) {
   #dark-toggle {
@@ -16,4 +26,27 @@
     right: 1rem;
     z-index: 100;
   }
+}
+
+/* Melhora a acessibilidade do foco de navegação por teclado */
+:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Suaviza transições de hover/focus em botões e links */
+button, a {
+  transition: all 0.2s cubic-bezier(.4,0,.2,1);
+}
+
+/* Corrige bug visual ao tocar em botões no mobile */
+button:active, a:active {
+  filter: brightness(0.95);
+}
+
+/* Suaviza imagens grandes para mobile */
+img, video {
+  max-width: 100%;
+  height: auto;
+  border-radius: inherit;
 }
